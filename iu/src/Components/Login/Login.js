@@ -4,6 +4,8 @@ import { Eye, EyeOff } from 'lucide-react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 const Login = () => {
   const [spotlight, setSpotlight] = useState({ x: 50, y: 50 });
