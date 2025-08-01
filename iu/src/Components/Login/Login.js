@@ -22,14 +22,25 @@ const Login = () => {
     setSpotlight({ x, y });
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async(e) => {
     e.preventDefault();
+    try {
+    const login = await axios.post("http://localhost:5000/api/users/login", {
+      email,
+      password,
+    });
+
     navigate('/home');
+  } catch(error) {
+    if (error.response && error.response.status === 400) {
+      alert('Email already exists');
+    } else {
+      // Handle other errors
+      console.error('Registration error:', error);
+      alert('Something went wrong. Please try again.');
+    }
   };
 
-  const handleSignup = (e) => {
-    e.preventDefault();
-    navigate('/home');
   };
 
   return (
