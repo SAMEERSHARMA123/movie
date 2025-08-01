@@ -7,7 +7,7 @@ const app = express();
 
 connectDB();
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin: "https://movie-bgm2.onrender.com", credentials:true}));
 
 app.use('/api/users', userRoutes);
 
