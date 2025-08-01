@@ -1,0 +1,136 @@
+.nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(24, 24, 27, 0.95);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s;
+}
+.nav-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e50914;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+}
+.nav-link:hover, .nav-link.active {
+  color: #fff;
+  background: #e50914;
+  box-shadow: 0 2px 8px rgba(229,9,20,0.15);
+  text-decoration: none;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-search {
+  position: relative;
+  display: flex;
+  width: 10rem;
+}
+.nav-search-input {
+  width: 100%;
+  background: #27272a;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1px solid #52525b;
+  border-right: none;
+  border-radius: 0.25rem 0 0 0.25rem;
+  outline: none;
+}
+.nav-search-input:focus {
+  border-color: #e50914;
+}
+.nav-search-btn {
+  background: #e50914;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e50914;
+  border-radius: 0 0.25rem 0.25rem 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.nav-search-btn:hover {
+  background: #b00610;
+}
+.nav-btn {
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 0.25rem;
+}
+.nav-btn:hover {
+  background: #27272a;
+}
+.nav-mobile-btn {
+  display: none;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 0.25rem;
+}
+.nav-mobile-btn:hover {
+  background: #27272a;
+}
+.search-icon, .bell-icon, .user-icon, .menu-icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: #fff;
+  border-radius: 50%;
+}
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  .nav-search {
+    display: none;
+  }
+  .nav-mobile-btn {
+    display: block;
+  }
+} 
