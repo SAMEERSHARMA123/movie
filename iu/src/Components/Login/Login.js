@@ -27,7 +27,7 @@ const Login = () => {
   const handleLogin = async(e) => {
     e.preventDefault();
     try {
-    const login = await axios.post("http://localhost:5000/api/users/login", {
+    const login = await axios.post("https://movie-xnt7.onrender.com/api/users/login", {
       email,
       password,
     });
