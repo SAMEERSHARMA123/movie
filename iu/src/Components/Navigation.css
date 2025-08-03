@@ -103,6 +103,20 @@
 .nav-btn:hover {
   background: #27272a;
 }
+.nav-mobile-search-btn {
+  display: none;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 0.25rem;
+}
+.nav-mobile-search-btn:hover {
+  background: #27272a;
+}
+
 .nav-mobile-btn {
   display: none;
   padding: 0.5rem;
@@ -129,6 +143,9 @@
   }
   .nav-search {
     display: none;
+  }
+  .nav-mobile-search-btn {
+    display: block;
   }
   .nav-mobile-btn {
     display: block;

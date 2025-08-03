@@ -25,7 +25,7 @@ const Register = () => {
  const handleRegister = async (e) => {
   e.preventDefault();
   try {
-    const register = await axios.post("https://movies-backend-58e4.onrender.com/api/users/register", {
+    const register = await axios.post("http://localhost:5000/api/users/register", {
       username,
       email,
       password,

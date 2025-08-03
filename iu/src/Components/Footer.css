@@ -50,6 +50,25 @@
   .footer-container {
     flex-direction: column;
     gap: 1.5rem;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-section {
+    text-align: center;
+    min-width: auto;
+  }
+  
+  .footer-section h4 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-section ul {
+    text-align: center;
+  }
+  
+  .footer-section li {
+    text-align: center;
   }
 }

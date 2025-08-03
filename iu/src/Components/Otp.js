@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Login/Login.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +7,17 @@ const Otp = () => {
   const inputs = useRef([]);
   const [spotlight, setSpotlight] = useState({ x: 50, y: 50 });
   const navigate = useNavigate();
+
+  // Component mount hote hi OTP show karna
+  useEffect(() => {
+    const registerData = JSON.parse(sessionStorage.getItem("register"));
+    if (registerData && registerData.otp) {
+      alert(`Your OTP is: ${registerData.otp}`);
+    } else {
+      alert("No OTP found! Please register again.");
+      navigate('/register');
+    }
+  }, [navigate]);
 
   const handleMouseMove = (e) => {
     const bg = e.currentTarget.getBoundingClientRect();
@@ -52,15 +63,19 @@ const Otp = () => {
     return;
   }
 
-  const savedOtp = registerData?.otp.toString(); 
+  const savedOtp = String(registerData?.otp); 
 
   const enteredOtp = otp.join('');  
+
+  console.log("Saved OTP:", savedOtp);
+  console.log("Entered OTP:", enteredOtp);
+  console.log("Are they equal?", enteredOtp === savedOtp);
 
   if (enteredOtp === savedOtp) {
     alert("OTP verified successfully!");
     navigate('/');
   } else {
-    alert("Invalid OTP, please try again.");
+    alert(`Invalid OTP, please try again. Expected: ${savedOtp}, Got: ${enteredOtp}`);
   }
 };
 
@@ -76,7 +91,7 @@ const Otp = () => {
       <div className="login-card">
         <form className="login-form" onSubmit={handleSubmit}>
           <h2 className="login-title">Enter OTP</h2>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', margin: '2rem 0' }}>
+          <div className="otp-container">
             {otp.map((digit, idx) => (
               <input
                 key={idx}
@@ -88,7 +103,6 @@ const Otp = () => {
                 value={digit}
                 onChange={e => handleChange(e, idx)}
                 onKeyDown={e => handleKeyDown(e, idx)}
-                style={{ textAlign: 'center', fontSize: '2rem', width: '3rem', padding: '0.5rem' }}
                 autoFocus={idx === 0}
               />
             ))}

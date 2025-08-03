@@ -1,9 +1,15 @@
 import React from "react";
 import "./Navigation.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search, Bell, CircleUserRound } from 'lucide-react';
 
 export default function Navigation() {
+  const navigate = useNavigate();
+
+  const handleSearchClick = () => {
+    navigate('/search');
+  };
+
   return (
     <header className="nav-header">
       <nav className="nav-container">
@@ -24,6 +30,11 @@ export default function Navigation() {
            
             
           </form>
+
+          {/* Mobile Search Icon - Only visible on mobile */}
+          <button className="nav-mobile-search-btn" onClick={handleSearchClick} title="Search">
+            <Search size={20} color="#fff" />
+          </button>
 
           <button className="nav-btn" title="Bell">
             <Bell size={20} color="#fff" />
